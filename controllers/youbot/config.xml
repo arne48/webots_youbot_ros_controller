@@ -1,0 +1,82 @@
+<?xml version="1.0" ?>
+<Config>
+    <timeStep>32</timeStep>
+    <baseRotationRatio>1</baseRotationRatio>
+    <baseSlideRatio>1</baseSlideRatio>
+    <baseJoints>4</baseJoints>
+    <baseDistFrontRearWheels>0.47</baseDistFrontRearWheels>
+    <baseDistFrontWheels>0.3</baseDistFrontWheels>
+    <baseWheelRadius>0.475</baseWheelRadius>
+    <pi>3.14159265358979323846</pi>
+    <angle_max_map>1.29467976093</angle_max_map> 
+    <angle_min_map>-1.30081570148</angle_min_map> 
+    <oneDegRad>0.017453293</oneDegRad>
+    <laserTimeIncrement>0.000097652514552</laserTimeIncrement>
+    <laserScanTime>0.10000000149</laserScanTime> 
+    <laserMinRange>0.06</laserMinRange> 
+    <laserMaxRange>4.095</laserMaxRange>
+    <armJoint0Offset>-2.93242</armJoint0Offset>
+    <armJoint1Offset>-1.04883</armJoint1Offset>
+    <armJoint2Offset>2.43523</armJoint2Offset>
+    <armJoint3Offset>-1.73184</armJoint3Offset>
+    <armJoint4Offset>-2.931384</armJoint4Offset>
+    <odometryTopicName>odom</odometryTopicName>
+
+    <wheels>
+        <joint>wheel1</joint>
+        <joint>wheel2</joint>
+        <joint>wheel3</joint>
+        <joint>wheel4</joint>
+    </wheels>
+
+    <arm>
+        <joint>arm1</joint>
+        <joint>arm2</joint>
+        <joint>arm3</joint>
+        <joint>arm4</joint>
+        <joint>arm5</joint>
+    </arm>
+
+    <fingers>
+        <joint>finger1</joint>
+        <joint>finger2</joint>
+    </fingers>
+
+<laserScanner>
+    <device name="laser_front">
+        <topicName>laser_front</topicName>
+        <sendTransforms>true</sendTransforms> 
+        <transformReference>base_link</transformReference>
+        <rotation x="0" y="0" z="0"/>
+        <translation x="0.3" y="0" z="-0.03"/>
+    </device>
+    <!--
+    <device name="laser_back">
+        <topicName>laser_back</topicName>
+        <sendTransforms>true</sendTransforms> 
+        <transformReference>base_link</transformReference>
+        <rotation x="0" y="0" z="0"/>
+        <translation x="0.3" y="0" z="-0.03"/>
+    </device> -->
+</laserScanner>
+
+<camera>
+    <device name="arm_camera">
+        <topicName>camera/image</topicName>
+        <sendTransforms>false</sendTransforms> 
+        <transformReference>base_link</transformReference>
+        <rotation x="0" y="0" z="0"/>
+        <translation x="0" y="0" z="0"/>
+    </device>
+</camera>
+
+<kinect>
+    <device name="kinect">
+        <topicName>kinect</topicName>
+        <sendTransforms>true</sendTransforms> 
+        <transformReference>base_link</transformReference>
+        <rotation x="55" y="180" z="90"/>
+        <translation x="-0.2" y="-0.009" z="0.4"/>
+    </device>
+</kinect>
+</Config>

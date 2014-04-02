@@ -1,0 +1,755 @@
+#VRML_SIM V6.0 utf8
+WorldInfo {
+  info [
+    "Simulation of the KUKA youBot robot."
+    "This model includes an accurate and fast simulation of the Meccanum wheels."
+    "The robot can be equiped with various sensors (including the Microsoft Kinect) and configured with zero, one or two arms."
+    "Author: Fabien Rohrer <fabien.rohrer@cyberbotics.com>"
+    "Date: 24 May 2011"
+  ]
+  title "KUKA youBot"
+  physics "fast_wheels"
+  basicTimeStep 64
+}
+Viewpoint {
+  orientation -0.193968 -0.904517 -0.379771 2.38027
+  position 1.1257 1.89427 -1.03747
+}
+Background {
+  skyColor [
+    0.580392 0.705882 0.772549
+  ]
+}
+DirectionalLight {
+  ambientIntensity 4
+  direction -0.22 -1 0.56
+  intensity 1.3
+  castShadows TRUE
+}
+DirectionalLight {
+  direction 0.65 -1 0.93
+  intensity 0.4
+}
+DEF GROUND Solid {
+  children [
+    DEF GROUND_SHAPE Shape {
+      appearance Appearance {
+        texture ImageTexture {
+          url [
+            "textures/parquetry.png"
+          ]
+        }
+        textureTransform TextureTransform {
+          scale 200 200
+        }
+      }
+      geometry Plane {
+        size 100 100
+      }
+    }
+  ]
+  boundingObject USE GROUND_SHAPE
+}
+DEF WALL_WEST Solid {
+  translation 0.720125 0.2 1.09517
+  children [
+    DEF WALL_LONG_SHAPE Shape {
+      geometry Box {
+        size 4 0.4 0.05
+      }
+    }
+  ]
+  boundingObject USE WALL_LONG_SHAPE
+}
+Solid {
+  translation 2.227 0.11 0
+  children [
+    KukaBox {
+      translation 3.33227e-07 0.00380267 -1.29866e-06
+      rotation 0.204048 0.0802371 -0.975667 1.68587e-07
+      color 0 0 0
+    }
+  ]
+}
+DEF WALL_WEST Solid {
+  translation 0.722992 0.2 -1.10279
+  children [
+    DEF WALL_LONG_SHAPE Shape {
+      geometry Box {
+        size 4 0.4 0.05
+      }
+    }
+  ]
+  boundingObject USE WALL_LONG_SHAPE
+}
+DEF WALL_EAST_LOGO Solid {
+  translation 0.713926 0.2 1.10586
+  children [
+    DEF Logo Shape {
+      appearance Appearance {
+        material DEF WALL_MATERIAL Material {
+          diffuseColor 1 1 1
+        }
+        texture ImageTexture {
+          url [
+            "logolinked.png"
+          ]
+          repeatT FALSE
+        }
+        textureTransform TextureTransform {
+          scale 2 1
+          translation -0.004 0
+        }
+      }
+      geometry Box {
+        size 3.98 0.2 0.0301
+      }
+    }
+  ]
+}
+DEF WALL_EAST_LOGO Solid {
+  translation 0.72675 0.2 -1.11352
+  children [
+    DEF Logo Shape {
+      appearance Appearance {
+        material DEF WALL_MATERIAL Material {
+          diffuseColor 1 1 1
+        }
+        texture ImageTexture {
+          url [
+            "logolinked.png"
+          ]
+          repeatT FALSE
+        }
+        textureTransform TextureTransform {
+          scale 2 1
+          translation -0.004 0
+        }
+      }
+      geometry Box {
+        size 3.98 0.2 0.0301
+      }
+    }
+  ]
+}
+DEF WALL_WEST Solid {
+  translation 0.722992 0.2 -1.10279
+  children [
+    DEF WALL_LONG_SHAPE Shape {
+      geometry Box {
+        size 4 0.4 0.05
+      }
+    }
+  ]
+  boundingObject USE WALL_LONG_SHAPE
+}
+DEF WALL_EAST_LOGO Solid {
+  translation 0.72675 0.2 -1.11352
+  children [
+    DEF Logo Shape {
+      appearance Appearance {
+        material DEF WALL_MATERIAL Material {
+          diffuseColor 1 1 1
+        }
+        texture ImageTexture {
+          url [
+            "logolinked.png"
+          ]
+          repeatT FALSE
+        }
+        textureTransform TextureTransform {
+          scale 2 1
+          translation -0.004 0
+        }
+      }
+      geometry Box {
+        size 3.98 0.2 0.0301
+      }
+    }
+  ]
+}
+DEF WALL_NORTH Solid {
+  translation 2.69836 0.2 -0.00288585
+  children [
+    DEF WALL_NORTH_SHAPE Shape {
+      geometry Box {
+        size 0.05 0.4 2.25
+      }
+    }
+  ]
+  boundingObject DEF SHORT_SIDE Box {
+    size 0.05 0.4 2.25
+  }
+}
+DEF WALL_NORTH_LOGO Solid {
+  translation 2.7101 0.2 0
+  children [
+    DEF Logo Shape {
+      appearance Appearance {
+        material DEF WALL_MATERIAL Material {
+          diffuseColor 1 1 1
+        }
+        texture ImageTexture {
+          url [
+            "logolinked.png"
+          ]
+          repeatT FALSE
+        }
+        textureTransform TextureTransform {
+        }
+      }
+      geometry Box {
+        size 0.03 0.2 2.2
+      }
+    }
+  ]
+}
+DEF WALL_SOUTH Solid {
+  translation -1.2563 0.2 -0.0042258
+  children [
+    USE WALL_NORTH_SHAPE
+  ]
+  boundingObject USE SHORT_SIDE
+}
+DEF WALL_SOUTH_LOGO Solid {
+  translation -1.26708 0.2 0.00663792
+  children [
+    DEF Logo Shape {
+      appearance Appearance {
+        material DEF WALL_MATERIAL Material {
+          diffuseColor 1 1 1
+        }
+        texture ImageTexture {
+          url [
+            "logolinked.png"
+          ]
+          repeatT FALSE
+        }
+        textureTransform TextureTransform {
+        }
+      }
+      geometry Box {
+        size 0.03 0.2 2.2
+      }
+    }
+  ]
+}
+DEF WALL_S2_S3 Solid {
+  translation 2.42 0.15 0.405
+  children [
+    Shape {
+      geometry Box {
+        size 0.55 0.3 0.05
+      }
+    }
+  ]
+  boundingObject DEF de Box {
+    size 0.55 0.3 0.05
+  }
+}
+DEF WALL_S2_S3 Solid {
+  translation 2.42 0.15 -0.405
+  children [
+    Shape {
+      geometry DEF SHORT_S Box {
+        size 0.55 0.3 0.05
+      }
+    }
+  ]
+  boundingObject Box {
+    size 0.55 0.3 0.05
+  }
+}
+DEF D1 Solid {
+  translation -0.968641 0.05 -0.697582
+  children [
+    DEF WHITE_d1 Shape {
+      appearance Appearance {
+        material DEF WHITE Material {
+          diffuseColor 1 1 1
+        }
+      }
+      geometry Box {
+        size 0.525 0.1 0.76
+      }
+    }
+  ]
+  boundingObject USE WHITE_d1
+}
+DEF S1 Solid {
+  translation 2.414 0.1 0
+  children [
+    Shape {
+      appearance Appearance {
+      }
+      geometry Box {
+        size 0.525 0.00015 0.77
+      }
+    }
+  ]
+  boundingObject Box {
+    size 0.6 0.002 0.8
+  }
+}
+DEF S3 Solid {
+  translation 2.414 0.1 0.75
+  children [
+    Shape {
+      appearance Appearance {
+      }
+      geometry Box {
+        size 0.525 0.00015 0.7
+      }
+    }
+  ]
+}
+DEF S2 Solid {
+  translation 2.414 0.2 -0.75
+  children [
+    Shape {
+      appearance Appearance {
+      }
+      geometry Box {
+        size 0.525 0.00015 0.7
+      }
+    }
+  ]
+  boundingObject Box {
+    size 0.5 0.0005 0.6
+  }
+}
+DEF D2 Solid {
+  translation -0.968754 0.1 0.721802
+  children [
+    DEF d2 Shape {
+      appearance Appearance {
+      }
+      geometry Box {
+        size 0.525 0.2 0.7
+      }
+    }
+  ]
+}
+DEF box_wall20 Solid {
+  translation 2.14992 0.1 -0.750963
+  children [
+    DEF box_wall20sh Shape {
+      geometry Box {
+        size 0.01 0.2 0.65
+      }
+    }
+  ]
+  boundingObject DEF box_wall20BOUND Box {
+    size 0.01 0.2 0.65
+  }
+}
+DEF box Solid {
+}
+DEF box_wall10165 Solid {
+  translation 2.14992 0.05 0.752783
+  children [
+    DEF box_wall1065sh Shape {
+      geometry Box {
+        size 0.01 0.1 0.65
+      }
+    }
+  ]
+  boundingObject USE box_wall1065sh
+}
+DEF box_wall10176 Solid {
+  translation 2.14897 0.05 0.00162043
+  children [
+    DEF box_wall1076sh Shape {
+      geometry Box {
+        size 0.01 0.1 0.76
+      }
+    }
+  ]
+  boundingObject USE box_wall1076sh
+}
+Robot {
+  translation 1.71034 0.0878825 -0.0877415
+  rotation 0.999617 0.01502 0.0232247 -1.57105
+  children [
+    GPS {
+    }
+    Compass {
+    }
+    Solid {
+      translation -0.232 0 0.196
+      rotation 1 0 0 -1.5708
+      children [
+        Shape {
+          geometry DEF CYLINDER Cylinder {
+            height 0.32
+            radius 0.005
+          }
+        }
+      ]
+      boundingObject USE CYLINDER
+    }
+    Hokuyo_URG04LX {
+      translation 0.32 0 -0.03
+      rotation -0.57735 0.57735 0.57735 4.18879
+      name "laser_front"
+    }
+    Kinect {
+      translation -0.233 0 0.35
+      rotation -0.406009 0.423017 0.81007 4.5
+      windowPosition 0.798306 0.142643
+    }
+    BodyMesh {
+    }
+    DEF ARM Solid {
+      translation 0.156 0 0
+      children [
+        Arm0Mesh {
+        }
+        Servo {
+          translation 0 0 0.077
+          rotation 0 0 1 0
+          children [
+            Arm1Mesh {
+            }
+            Servo {
+              translation 0.033 0 0.07
+              rotation 0 -1 0 0
+              children [
+                Arm2Mesh {
+                }
+                Servo {
+                  translation 0 0 0.155
+                  rotation 0 -1 0 0
+                  children [
+                    Arm3Mesh {
+                    }
+                    Servo {
+                      translation 0 0 0.135
+                      rotation 0 -1 0 0
+                      children [
+                        Arm4Mesh {
+                        }
+                        Servo {
+                          translation 0 0 0.081
+                          rotation 0 0 1 0
+                          children [
+                            Arm5Mesh {
+                            }
+                            Camera {
+                              translation -0.031 0.001 0.061
+                              rotation -0.705663 0.708547 0 3.14159
+                              name "arm_camera"
+                              width 320
+                              height 240
+                            }
+                            Servo {
+                              translation 0 0 0.09
+                              rotation 1 0 0 4.71239
+                              children [
+                                FingerMesh {
+                                }
+                              ]
+                              name "finger1"
+                              boundingObject DEF FINGER_BO Group {
+                                children [
+                                  Transform {
+                                    translation 0 -0.031 0.015
+                                    children [
+                                      Box {
+                                        size 0.014 0.032 0.009
+                                      }
+                                    ]
+                                  }
+                                  Transform {
+                                    translation 0 -0.007 0.01
+                                    children [
+                                      Box {
+                                        size 0.014 0.015 0.019
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                              physics DEF FINGER_PH Physics {
+                                density -1
+                                mass 0.03
+                                centerOfMass [
+                                  0 -0.02 0.01
+                                ]
+                              }
+                              type "linear"
+                              maxForce 100
+                              position 0.0200004
+                              maxPosition 0.025
+                            }
+                            Servo {
+                              translation 0 0 0.09
+                              rotation 0 -0.707107 0.707107 3.14159
+                              children [
+                                FingerMesh {
+                                }
+                              ]
+                              name "finger2"
+                              boundingObject USE FINGER_BO
+                              physics USE FINGER_PH
+                              type "linear"
+                              maxForce 100
+                              position 0.0200004
+                              maxPosition 0.025
+                            }
+                          ]
+                          name "arm5"
+                          boundingObject Transform {
+                            translation 0 0 0.045
+                            children [
+                              Box {
+                                size 0.025 0.07 0.09
+                              }
+                            ]
+                          }
+                          physics Physics {
+                            density -1
+                            mass 0.251
+                            centerOfMass [
+                              0 0 0.045
+                            ]
+                          }
+                          maxVelocity 1.5708
+                          maxForce 1
+                          position 2.99015e-05
+                          minPosition -2.92343
+                          maxPosition 2.92343
+                        }
+                      ]
+                      name "arm4"
+                      boundingObject Group {
+                        children [
+                          Transform {
+                            translation 0 0 0.056
+                            children [
+                              Box {
+                                size 0.05 0.095 0.05
+                              }
+                            ]
+                          }
+                          Transform {
+                            translation 0 -0.024 0.003
+                            children [
+                              Cylinder {
+                                height 0.047
+                                radius 0.027
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                      physics Physics {
+                        density -1
+                        mass 0.877
+                        centerOfMass [
+                          0 0 0.026
+                        ]
+                      }
+                      maxVelocity 1.5708
+                      maxForce 2
+                      position 1.78
+                      minPosition -1.78024
+                      maxPosition 1.78024
+                    }
+                  ]
+                  name "arm3"
+                  boundingObject Transform {
+                    translation 0 0.0225 0.065
+                    children [
+                      Box {
+                        size 0.06 0.045 0.19
+                      }
+                    ]
+                  }
+                  physics Physics {
+                    density -1
+                    mass 0.934
+                    centerOfMass [
+                      0 0.0225 0.065
+                    ]
+                  }
+                  maxVelocity 1.5708
+                  maxForce 6
+                  position -2.63545
+                  minPosition -2.63545
+                  maxPosition 2.54818
+                }
+              ]
+              name "arm2"
+              boundingObject Transform {
+                translation 0 -0.03 0.078
+                children [
+                  Box {
+                    size 0.07 0.06 0.21
+                  }
+                ]
+              }
+              physics Physics {
+                density -1
+                mass 1.155
+                centerOfMass [
+                  0 -0.03 0.078
+                ]
+              }
+              maxVelocity 1.5708
+              maxForce 9.5
+              position 1.57
+              minPosition -1.13446
+              maxPosition 1.5708
+            }
+          ]
+          name "arm1"
+          boundingObject Transform {
+            translation 0.032 0.023 0.07
+            children [
+              Cylinder {
+                height 0.046
+                radius 0.036
+              }
+            ]
+          }
+          physics Physics {
+            density -1
+            mass 2.412
+            centerOfMass [
+              0.015 0.01 0.05
+            ]
+          }
+          maxVelocity 1.5708
+          maxForce 9.5
+          position -0.000312505
+          minPosition -2.9496
+          maxPosition 2.9496
+        }
+      ]
+      name "arm0"
+      boundingObject Transform {
+        translation 0 0 0.04
+        rotation 1 0 0 1.5708
+        children [
+          Cylinder {
+            height 0.08
+            radius 0.078
+          }
+        ]
+      }
+      physics Physics {
+        density -1
+        mass 0.845
+        centerOfMass [
+          0 0 0.04
+        ]
+      }
+    }
+    DEF WHEEL1 FastInteriorWheel {
+      translation 0.228 -0.158 -0.055
+      name "wheel1"
+    }
+    DEF WHEEL2 FastExteriorWheel {
+      translation 0.228 0.158 -0.055
+      name "wheel2"
+    }
+    DEF WHEEL3 FastExteriorWheel {
+      translation -0.228 -0.158 -0.055
+      name "wheel3"
+    }
+    DEF WHEEL4 FastInteriorWheel {
+      translation -0.228 0.158 -0.055
+      name "wheel4"
+    }
+    DEF PLATE Solid {
+      translation -0.155 0 0
+      children [
+        PlateMesh {
+        }
+      ]
+      boundingObject Group {
+        children [
+          Transform {
+            translation 0.008 0 0.045
+            children [
+              Box {
+                size 0.25 0.17 0.007
+              }
+            ]
+          }
+          Transform {
+            translation -0.015 0.112 0.045
+            rotation 0 0 1 -0.13
+            children [
+              Box {
+                size 0.17 0.08 0.007
+              }
+            ]
+          }
+          Transform {
+            translation -0.015 -0.112 0.045
+            rotation 0 0 1 0.13
+            children [
+              Box {
+                size 0.17 0.08 0.007
+              }
+            ]
+          }
+          Transform {
+            translation 0.076 0.084 0.045
+            rotation 0 0 1 0.81
+            children [
+              Box {
+                size 0.08 0.08 0.007
+              }
+            ]
+          }
+          Transform {
+            translation 0.076 -0.084 0.045
+            rotation 0 0 1 -0.81
+            children [
+              Box {
+                size 0.08 0.08 0.007
+              }
+            ]
+          }
+        ]
+      }
+      physics Physics {
+        density -1
+        mass 0.5
+      }
+    }
+  ]
+  name "youBot"
+  description "KUKA youBot"
+  boundingObject Group {
+    children [
+      Transform {
+        translation 0 0 -0.045
+        children [
+          Box {
+            size 0.34 0.34 0.09
+          }
+        ]
+      }
+      Transform {
+        translation 0 0 -0.045
+        children [
+          Box {
+            size 0.56 0.23 0.09
+          }
+        ]
+      }
+    ]
+  }
+  physics Physics {
+    density -1
+    mass 22
+    centerOfMass [
+      0 0 -0.045
+    ]
+  }
+  controller "youbot"
+}

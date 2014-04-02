@@ -1,0 +1,9 @@
+<launch>
+    <!-- send youbot urdf to param server -->
+    <param name="robot_description" command="$(find xacro)/xacro.py '$(find youbot_description)/robots/youbot.urdf.xacro'"/>
+    <param name="use_sim_time" value="true" />
+    <node pkg="robot_state_publisher" type="state_publisher" name="robot_state_publisher" output="screen" />
+    <include file="$(find youbot_joint_trajectory_action)/ros/launch/youbot_joint_trajectory_action.launch"/>
+    <include file="$(find youbot_arm_navigation)/ros/launch/arm_navigation.launch"/>
+    <node pkg="webots_controller_cpp" type="webots.sh" name="webots" output="screen"/>
+</launch>
